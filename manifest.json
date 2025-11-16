@@ -1,0 +1,30 @@
+{
+  "manifestVersion": 5,
+  "id": "com.golovasya.printlayout",
+  "name": "Print Layout Manager",
+  "version": "1.0.0",
+  "main": "index.html",
+  "host": [
+    {
+      "app": "PS",
+      "minVersion": "24.0.0"
+    }
+  ],
+  "entrypoints": [
+    {
+      "type": "panel",
+      "id": "printLayoutPanel",
+      "label": {
+        "default": "Print Layout Manager"
+      }
+    }
+  ],
+  "requiredPermissions": {
+    "localFileSystem": "request",
+    "clipboard": "readAndWrite",
+    "network": {
+      "domains": ["https://cdn.sheetjs.com"]
+    },
+    "allowCodeGenerationFromStrings": true
+  }
+}

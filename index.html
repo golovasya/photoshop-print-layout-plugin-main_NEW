@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Print Layout Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Print Layout Manager</h1>
+        </header>
+
+        <!-- Секция загрузки таблицы -->
+        <section class="upload-section">
+            <button id="loadXlsxBtn" class="primary-btn">📂 Загрузить XLSX таблицу</button>
+            <div id="fileInfo" class="file-info hidden">
+                <span id="fileName">Файл не загружен</span>
+                <button id="clearFileBtn" class="secondary-btn small-btn">✕</button>
+            </div>
+        </section>
+
+        <!-- Секция вызова скрипта -->
+        <section class="script-section">
+            <button id="runScriptBtn" class="secondary-btn" disabled>▶️ Запустить раскладку</button>
+            <p class="hint">Сначала загрузите таблицу для активации</p>
+        </section>
+
+        <!-- Список принтов -->
+        <section class="prints-section">
+            <h2>Принты на холсте <span id="printCount" class="count">0</span></h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск по артикулу...">
+            </div>
+            <div id="printsList" class="prints-list">
+                <!-- Динамически генерируемый список -->
+            </div>
+        </section>
+
+        <!-- Детали выбранного принта -->
+        <section id="printDetails" class="details-section hidden">
+            <h3>Детали принта</h3>
+            <div class="detail-row">
+                <div class="detail-mockup" id="detailMockup">
+                    <img src="" alt="Мокап" id="mockupImage" class="mockup-placeholder">
+                </div>
+            </div>
+            <div class="detail-row">
+                <label>Артикул:</label>
+                <span id="detailArticle" class="detail-value">-</span>
+            </div>
+            <div class="detail-row">
+                <label>Размер:</label>
+                <span id="detailSize" class="detail-value">-</span>
+            </div>
+            <div class="detail-row">
+                <label>Цвет:</label>
+                <span id="detailColor" class="detail-value">-</span>
+            </div>
+            <div class="detail-row">
+                <label>Физический размер (мм):</label>
+                <div class="size-inputs">
+                    <input type="number" id="physicalWidth" class="size-input" placeholder="Ширина" step="0.1" min="0">
+                    <span>×</span>
+                    <input type="number" id="physicalHeight" class="size-input" placeholder="Высота" step="0.1" min="0">
+                </div>
+            </div>
+            <div class="detail-row">
+                <button id="applySizeBtn" class="primary-btn">Применить размер</button>
+            </div>
+        </section>
+
+        <!-- Статус бар -->
+        <footer class="status-bar">
+            <span id="statusText">Готов к работе</span>
+        </footer>
+    </div>
+
+    <script src="lib/xlsx.full.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

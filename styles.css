@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Adobe Clean', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    color: var(--uxp-color-text-primary);
+    background-color: var(--uxp-color-bg-primary);
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 12px;
+    gap: 12px;
+}
+
+header {
+    border-bottom: 1px solid var(--uxp-color-border-primary);
+    padding-bottom: 8px;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--uxp-color-text-primary);
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+h3 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.count {
+    background: var(--uxp-color-accent-primary);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Секции */
+.upload-section,
+.script-section,
+.prints-section,
+.details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prints-section {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Кнопки */
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.primary-btn {
+    background: var(--uxp-color-accent-primary);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: var(--uxp-color-accent-primary-hover);
+}
+
+.primary-btn:active {
+    background: var(--uxp-color-accent-primary-pressed);
+}
+
+.secondary-btn {
+    background: var(--uxp-color-btn-secondary-bg);
+    color: var(--uxp-color-text-primary);
+    border: 1px solid var(--uxp-color-border-primary);
+}
+
+.secondary-btn:hover {
+    background: var(--uxp-color-btn-secondary-hover-bg);
+}
+
+.secondary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.small-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+/* Информация о файле */
+.file-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--uxp-color-bg-secondary);
+    border-radius: 4px;
+    border: 1px solid var(--uxp-color-border-primary);
+}
+
+.file-info span {
+    font-size: 12px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Hint */
+.hint {
+    font-size: 11px;
+    color: var(--uxp-color-text-secondary);
+    font-style: italic;
+}
+
+/* Поиск */
+.search-box {
+    margin-bottom: 8px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid var(--uxp-color-border-primary);
+    border-radius: 4px;
+    background: var(--uxp-color-input-bg);
+    color: var(--uxp-color-text-primary);
+    font-size: 12px;
+}
+
+/* Список принтов */
+.prints-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 2px;
+}
+
+.print-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background: var(--uxp-color-bg-secondary);
+    border: 1px solid var(--uxp-color-border-primary);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.print-item:hover {
+    background: var(--uxp-color-bg-tertiary);
+    border-color: var(--uxp-color-accent-primary);
+}
+
+.print-item.selected {
+    background: var(--uxp-color-accent-primary);
+    color: white;
+    border-color: var(--uxp-color-accent-primary);
+}
+
+.print-item.selected .print-meta {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.print-thumbnail {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background: var(--uxp-color-bg-primary);
+    border: 1px solid var(--uxp-color-border-secondary);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.print-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.print-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.print-article {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.print-meta {
+    font-size: 11px;
+    color: var(--uxp-color-text-secondary);
+    display: flex;
+    gap: 8px;
+}
+
+.print-size-badge {
+    background: var(--uxp-color-bg-primary);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.selected .print-size-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Детали принта */
+.details-section {
+    border-top: 1px solid var(--uxp-color-border-primary);
+    padding-top: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.detail-mockup {
+    width: 100%;
+    height: 150px;
+    background: var(--uxp-color-bg-primary);
+    border: 1px solid var(--uxp-color-border-primary);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.mockup-placeholder {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.detail-row label {
+    font-weight: 600;
+    min-width: 120px;
+    font-size: 12px;
+}
+
+.detail-value {
+    font-size: 12px;
+    color: var(--uxp-color-text-secondary);
+}
+
+.size-inputs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.size-input {
+    flex: 1;
+    padding: 6px 8px;
+    border: 1px solid var(--uxp-color-border-primary);
+    border-radius: 4px;
+    background: var(--uxp-color-input-bg);
+    color: var(--uxp-color-text-primary);
+    font-size: 12px;
+}
+
+/* Статус бар */
+.status-bar {
+    border-top: 1px solid var(--uxp-color-border-primary);
+    padding-top: 8px;
+    font-size: 11px;
+    color: var(--uxp-color-text-secondary);
+}
+
+/* Утилиты */
+.hidden {
+    display: none !important;
+}
+
+/* Скроллбары */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--uxp-color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--uxp-color-border-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--uxp-color-border-secondary);
+}
